@@ -52,6 +52,8 @@ def form_factory(form_class, field_name):
 
 def generate_cache_key(value):
     """Return a cache-safe hashed key based on `value`."""
+    # TODO: The cache-key prefix should be customizable.
+    value = 'FORM_TIMEOUT_%s' % value
     # Replace unsupported characters from the value. This is not collision
     # safe.
     value = ''.join(map(lambda v: ord(v) >= 33 and '_' or v, value))
