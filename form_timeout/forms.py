@@ -7,7 +7,7 @@ from django.core.cache import cache
 from django.utils.translation import ugettext as _
 
 ALLOWED_ATTEMPTS = getattr(settings, 'FORM_TIMEOUT_ATTEMPTS', 5)
-TIMEOUT_PENTALTY = getattr(settings, 'FORM_TIMEOUT_PENALTY', 10)
+TIMEOUT_PENTALTY = getattr(settings, 'FORM_TIMEOUT_PENALTY', 60)
 
 def form_factory(form_class, field_name):
     """Return a subclass of `form_class` that records and manages failed form
