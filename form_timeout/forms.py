@@ -75,7 +75,7 @@ def reset_recorded_attempts(key, record_cache=_record_cache):
         del(record_cache[key])
     cache.delete(key)
 
-def check_recorded_attempts(key, now=datetime.datetime.now(), record={}):
+def check_recorded_attempts(key, now, record={}):
     """Raise a ``forms.ValidationError`` if the number of attempts since the
     last successful attempt -- or since the last served penalty -- exceeds
     ``settings.FORM_TIMEOUT_ATTEMPTS`` and the number of seconds since the
@@ -106,7 +106,7 @@ def check_recorded_attempts(key, now=datetime.datetime.now(), record={}):
                                            "seconds.") % interpolation_args))
     return record
 
-def record_attempt(key, now=datetime.datetime.now(), record={}):
+def record_attempt(key, now, record={}):
     """Update `record` by increasing the number of attempts by one and setting
     the time of the last attempt to `now`. Store the updated dict in the cache
     backend at `key`.
