@@ -19,6 +19,10 @@ True
 
 """
 
+from form_timeout.forms import generate_cache_key
+from form_timeout.forms import form_factory
+from form_timeout.forms import ALLOWED_ATTEMPTS
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
